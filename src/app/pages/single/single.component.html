@@ -1,0 +1,85 @@
+<div class="product-details pt-100 pb-95">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <div class="product-details-img">
+                  <img class="zoompro" src="http://localhost:3000/{{product.image}}"  alt="zoom"/>
+
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+              <div class="product-details-content">
+                  <h4>{{product.title}}</h4>
+                  <div class="rating-review">
+                      <div class="pro-dec-rating">
+                          <i class="ion-android-star-outline theme-star"></i>
+                          <i class="ion-android-star-outline theme-star"></i>
+                          <i class="ion-android-star-outline theme-star"></i>
+                          <i class="ion-android-star-outline theme-star"></i>
+                          <i class="ion-android-star-outline"></i>
+                      </div>
+                      <div class="pro-dec-review">
+                          <ul>
+                              <li>32 Reviews </li>
+                              <li> Add Your Reviews</li>
+                          </ul>
+                      </div>
+                  </div>
+                  <span>{{product.price}}EGP</span>
+                  <div class="in-stock">
+                      <p>Available: <span>In stock</span></p>
+                  </div>
+                  <p>{{product.discription}} </p>
+
+                  <div class="quality-add-to-cart">
+                      <div class="quality">
+                          <form [formGroup]="cartForm" (ngSubmit)="createCart()">
+                            <!-- <input class="cart-plus-minus-box x" type="text" name="qtybutton"     formControlName="productId"  > -->
+                            <label >Qty:</label>
+                            <input class="cart-plus-minus-box border border-secondary"  name="qtybutton" value="02" formControlName="quantity">
+                            <button type="submit" class="btn btncol ">Add to cart</button>
+
+                          </form>
+
+                      </div>
+
+                  </div>
+                  <div class="pro-dec-categories">
+                      <ul>
+                          <li class="categories-title">Categories:</li>
+                          <li><a href="#">Green,</a></li>
+                          <li><a href="#">Herbal, </a></li>
+                          <li><a href="#">Loose,</a></li>
+                          <li><a href="#">Mate,</a></li>
+                          <li><a href="#">Organic </a></li>
+                      </ul>
+                  </div>
+                  <div class="pro-dec-categories">
+                      <ul>
+                          <li class="categories-title">Tags: </li>
+                          <li><a href="#"> Oolong, </a></li>
+                          <li><a href="#"> Pu'erh,</a></li>
+                          <li><a href="#"> Dark,</a></li>
+                          <li><a href="#"> Special </a></li>
+                      </ul>
+                  </div>
+                  <div class="pro-dec-social">
+                      <ul>
+                          <li><a class="tweet" href="#"><i class="ion-social-twitter"></i> Tweet</a></li>
+                          <li><a class="share" href="#"><i class="ion-social-facebook"></i> Share</a></li>
+                          <li><a class="google" href="#"><i class="ion-social-googleplus-outline"></i> Google+</a></li>
+                          <li><a class="pinterest" href="#"><i class="ion-social-pinterest"></i> Pinterest</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- <div class="shop-list-cart-wishlist">
+  <a title="Add To Cart" href="#" type="submit">
+      <i class="icon-handbag">Add</i>
+
+  </a>
+</div> -->

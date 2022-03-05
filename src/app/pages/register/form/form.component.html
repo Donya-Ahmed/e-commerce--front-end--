@@ -1,0 +1,70 @@
+<div class="login-register-area ptb-100">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+              <div class="login-register-wrapper">
+                  <div >
+
+                      <a data-toggle="tab" href="#">
+                          <h4> register </h4>
+                      </a>
+                  </div>
+
+
+
+                          <div class="login-form-container">
+                              <div class="login-register-form">
+                                <div [ngClass]="{'alert':true,'alert-danger':!flag,'alert-success':flag}" *ngIf="errorMsg!=''">
+                                      {{errorMsg}}
+                                </div>
+                                  <form #FormRegister="ngForm" (ngSubmit)="handlerRegister(FormRegister)">
+                                    <input type="text" name="name" placeholder="enter your name" ngModel
+
+                                    #name="ngModel" required minlength="3">
+                                    <div *ngIf="name.invalid&&(name.dirty||name.touched||FormRegister.submitted)" class="alert alert-danger">
+                                      <p *ngIf="name.errors?.['required']">name is required</p>
+                                      <p *ngIf="name.errors?.['minlength']">name must be at least 3 character </p>
+
+
+                                    </div>
+                                      <!-- <input type="text" name="username" placeholder="Username" ngModel
+                                      #username="ngModel" required>
+                                      <div *ngIf="username.invalid&&(username.dirty||username.touched||FormRegister.submitted)" class="alert alert-danger">
+                                        <p *ngIf="username.errors?.['required']">user name is required</p>
+
+                                      </div> -->
+                                      <input name="email" placeholder="Email" type="email" ngModel #email="ngModel" required email >
+                                      <div *ngIf="email.invalid&&(email.dirty||email.touched||FormRegister.submitted)" class="alert alert-danger">
+                                        <p *ngIf="email.errors?.['required']">email is required</p>
+                                        <p *ngIf="email.errors?.['email']">email is rnot email</p>
+
+
+                                      </div>
+                                      <input type="date" name="birthDate" placeholder="birth date" ngModel
+                                      #birthDate="ngModel" required>
+                                      <div *ngIf="birthDate.invalid&&(birthDate.dirty||birthDate.touched||FormRegister.submitted)" class="alert alert-danger">
+                                        <p *ngIf="birthDate.errors?.['required']">birth date is required</p>
+
+                                      </div>
+                                      <input type="password" name="password" placeholder="Password" ngModel
+                                      #password="ngModel" required>
+                                      <div *ngIf="password.invalid&&(password.dirty||password.touched||FormRegister.submitted)" class="alert alert-danger">
+                                        <p *ngIf="password.errors?.['required']">password is required</p>
+
+                                      </div>
+
+
+
+                                      <div class="button-box">
+                                          <button type="submit"><span>Register</span></button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

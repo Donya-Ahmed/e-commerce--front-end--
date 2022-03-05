@@ -1,0 +1,193 @@
+<header class="header-area gray-bg clearfix">
+  <div class="header-bottom">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-4 col-6">
+                  <div class="logo">
+                      <a routerLink="/">
+                          <!-- <img alt="" src="assets/img/logo.png" class="logo"> -->
+                          Smart Shop
+
+                      </a>
+                  </div>
+              </div>
+              <div class="col-lg-9 col-md-8 col-6">
+                  <div class="header-bottom-right">
+                      <div class="main-menu">
+                          <nav>
+                              <ul>
+                                  <li class="top-hover"><a routerLink="/">home</a>
+
+                                  </li>
+                                  <li><a routerLink="/about">about</a></li>
+                                  <li class="mega-menu-position top-hover"><a routerLink="/shop">shop</a>
+                                    <ul class="mega-menu">
+                                        <li  *ngFor="let x of categories ;let i =index ">
+
+                                                <a class="mega-menu-title"  routerLink="/shop/{{x.category}}">{{x.category}}</a>
+
+
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                                  <li><a routerLink="/register" *ngIf="!_auth.isLogin; else profile">register</a></li>
+                                  <ng-template #profile>
+                                    <li><a routerLink="/profile">profile</a></li>
+
+                                </ng-template>
+                                  <li><a routerLink="/login"*ngIf="!_auth.isLogin; ">login</a></li>
+                                  <li><a routerLink="#"*ngIf="_auth.isLogin;" (click)="logout()">logout</a></li>
+
+                                  <li><a routerLink="/contact">contact</a></li>
+                              </ul>
+                          </nav>
+                      </div>
+      <div class="header-currency">
+        <span class="digit">USD <i class="ti-angle-down"></i></span>
+        <div class="dollar-submenu">
+          <ul>
+            <li><a routerLink="#">$ USD</a></li>
+            <li><a routerLink="#">€ EUR</a></li>
+            <li><a routerLink="#">£ GBP</a></li>
+            <li><a routerLink="#">₹ INR</a></li>
+            <li><a routerLink="#">¥ JPY</a></li>
+          </ul>
+        </div>
+      </div>
+                      <div class="header-cart">
+                          <a routerLink="#">
+                              <div class="cart-icon">
+                                  <i class="ti-shopping-cart"></i>
+                              </div>
+                          </a>
+                          <div class="shopping-cart-content">
+                              <ul>
+                                  <li class="single-shopping-cart"  *ngFor="let y of _auth.cart">
+                                      <div class="shopping-cart-img">
+                                          <a routerLink="#"><img alt="" src="http://localhost:3000/{{y.image}}" class="w-100"></a>
+                                      </div>
+                                      <div class="shopping-cart-title">
+                                          <h4><a routerLink="#">{{y.title}} </a></h4>
+                                          <h6>{{y.quantity}}</h6>
+                                          <span>{{y.price}}</span>
+                                      </div>
+                                      <div class="shopping-cart-delete">
+                                          <!-- <a routerLink="/{{x._id}}/{{y._id}}" (click)="deleteItem()"><i class="ion ion-close"></i></a> -->
+                                          <a (click)="deleteItem(_auth.cartId,y.productId)"><i class="ion ion-close"></i></a>
+
+                                          <!-- <a routerLink="#" (click)="deleteItem(x,y)"><i class="ion ion-close"></i></a> -->
+
+                                      </div>
+                                  </li>
+
+                              </ul>
+
+                              <div class="shopping-cart-btn">
+                                  <a routerLink="/cart">view cart</a>
+                                  <a routerLink="checkout.html">checkout</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="mobile-menu-area">
+              <div class="mobile-menu">
+                  <nav id="mobile-menu-active">
+                      <ul class="menu-overflow">
+                          <li><a routerLink="#">HOME</a>
+                              <ul>
+                                  <li><a routerLink="index.html">home version 1</a></li>
+                                  <li><a routerLink="index-2.html">home version 2</a></li>
+                              </ul>
+                          </li>
+                          <li><a routerLink="#">pages</a>
+                              <ul>
+                                  <li><a routerLink="about-us.html">about us </a></li>
+                                  <li><a routerLink="shop.html">shop Grid</a></li>
+                                  <li><a routerLink="shop-list.html">shop list</a></li>
+                                  <li><a routerLink="product-details.html">product details</a></li>
+                                  <li><a routerLink="cart-page.html">cart page</a></li>
+                                  <li><a routerLink="checkout.html">checkout</a></li>
+                                  <li><a routerLink="wishlist.html">wishlist</a></li>
+                                  <li><a routerLink="my-account.html">my account</a></li>
+                                  <li><a routerLink="login-register.html">login / register</a></li>
+                                  <li><a routerLink="contact.html">contact</a></li>
+                              </ul>
+                          </li>
+                          <li><a routerLink="shop.html"> Shop </a>
+                              <ul>
+                                  <li><a routerLink="#">Categories 01</a>
+                                      <ul>
+                                          <li><a routerLink="shop.html">Aconite</a></li>
+                                          <li><a routerLink="shop.html">Ageratum</a></li>
+                                          <li><a routerLink="shop.html">Allium</a></li>
+                                          <li><a routerLink="shop.html">Anemone</a></li>
+                                          <li><a routerLink="shop.html">Angelica</a></li>
+                                          <li><a routerLink="shop.html">Angelonia</a></li>
+                                      </ul>
+                                  </li>
+                                  <li><a routerLink="#">Categories 02</a>
+                                      <ul>
+                                          <li><a routerLink="shop.html">Balsam</a></li>
+                                          <li><a routerLink="shop.html">Baneberry</a></li>
+                                          <li><a routerLink="shop.html">Bee Balm</a></li>
+                                          <li><a routerLink="shop.html">Begonia</a></li>
+                                          <li><a routerLink="shop.html">Bellflower</a></li>
+                                          <li><a routerLink="shop.html">Bergenia</a></li>
+                                      </ul>
+                                  </li>
+                                  <li><a routerLink="#">Categories 03</a>
+                                      <ul>
+                                          <li><a routerLink="shop.html">Caladium</a></li>
+                                          <li><a routerLink="shop.html">Calendula</a></li>
+                                          <li><a routerLink="shop.html">Carnation</a></li>
+                                          <li><a routerLink="shop.html">Catmint</a></li>
+                                          <li><a routerLink="shop.html">Celosia</a></li>
+                                          <li><a routerLink="shop.html">Chives</a></li>
+                                      </ul>
+                                  </li>
+                                  <li><a routerLink="#">Categories 04</a>
+                                      <ul>
+                                          <li><a routerLink="shop.html">Daffodil</a></li>
+                                          <li><a routerLink="shop.html">Dahlia</a></li>
+                                          <li><a routerLink="shop.html">Daisy</a></li>
+                                          <li><a routerLink="shop.html">Diascia</a></li>
+                                          <li><a routerLink="shop.html">Dusty Miller</a></li>
+                                          <li><a routerLink="shop.html">Dame’s Rocket</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li><a routerLink="#">BLOG</a>
+                              <ul>
+                                  <li><a routerLink="blog-masonry.html">Blog Masonry</a></li>
+                                  <li><a routerLink="#">Blog Standard</a>
+                                      <ul>
+                                          <li><a routerLink="blog-left-sidebar.html">left sidebar</a></li>
+                                          <li><a routerLink="blog-right-sidebar.html">right sidebar</a></li>
+                                          <li><a routerLink="blog-no-sidebar.html">no sidebar</a></li>
+                                      </ul>
+                                  </li>
+                                  <li><a routerLink="#">Post Types</a>
+                                      <ul>
+                                          <li><a routerLink="blog-details-standerd.html">Standard post</a></li>
+                                          <li><a routerLink="blog-details-audio.html">audio post</a></li>
+                                          <li><a routerLink="blog-details-video.html">video post</a></li>
+                                          <li><a routerLink="blog-details-gallery.html">gallery post</a></li>
+                                          <li><a routerLink="blog-details-link.html">link post</a></li>
+                                          <li><a routerLink="blog-details-quote.html">quote post</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li><a routerLink="contact.html"> Contact us </a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </div> -->
+      </div>
+  </div>
+</header>

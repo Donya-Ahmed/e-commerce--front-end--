@@ -1,0 +1,19 @@
+/* .x{
+    display:none !important;
+} */
+.btncol{
+  color: white !important;
+  background-color: #519F10 !important;
+  border: #519F10 !important;
+  padding: 5% !important;
+  border-radius: 2% !important;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+}
+.btncol:hover{
+  color: #519F10 !important;
+  background-color: white !important;
+  border: white !important;
+
+}
